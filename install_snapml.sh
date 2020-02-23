@@ -12,6 +12,7 @@ set -eu
     echo "Installing SnapML packages"
     echo "Please standby, this will take a few minutes..."
     # install SnapML
+    export IBM_POWERAI_LICENSE_ACCEPT=yes
     conda config --prepend channels https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda/
     conda config --set channel_priority strict
     conda install -y --prefix /usr/local \
