@@ -1,12 +1,11 @@
 #!/bin/bash
 #forked from https://github.com/nvgsg/rapids/blob/master/rapids-colab.sh
 set -eu
-if [ ! -f Miniconda3-latest-Linux-x86_64.sh ]; then
-    echo "Removing conflicting packages, will replace with RAPIDS compatible versions"
+#if [ ! -f Miniconda3-latest-Linux-x86_64.sh ]; then
 
     # install miniconda
     echo "Installing conda"
-    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    wget -Nc https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
     chmod +x Miniconda3-latest-Linux-x86_64.sh
     bash Miniconda3-latest-Linux-x86_64.sh -b -f -p /usr/local
 
@@ -21,7 +20,7 @@ if [ ! -f Miniconda3-latest-Linux-x86_64.sh ]; then
     echo "Copying shared object files to /usr/lib"
     # copy .so files to /usr/lib, where Colab's Python looks for libs
     cp /usr/local/lib/lib*.so /usr/lib/
-fi
+#fi
 
 echo ""
 echo "*********************************************"
