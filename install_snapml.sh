@@ -12,8 +12,8 @@ if [ ! -f Miniconda3-latest-Linux-x86_64.sh ]; then
 
     echo "Installing SnapML packages"
     echo "Please standby, this will take a few minutes..."
-    # install RAPIDS packages
-    !conda config --prepend channels \
+    # install SnapML
+    conda config --prepend channels \
 https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda/
     conda config --set channel_priority strict
     conda install -y --prefix /usr/local \
