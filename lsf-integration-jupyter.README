@@ -1,0 +1,35 @@
+#How to use LSF to schedule jupyter notebooks
+#Steps taken from https://blog.csdn.net/ducal90/article/details/102934998
+
+
+$ipython
+Python 3.6.10 |Anaconda, Inc.| (default, Jan  7 2020, 21:14:29) 
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.12.0 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: from notebook.auth import passwd                                                                                                                                                                    
+
+In [2]: passwd                                                                                                                                                                                              
+Out[2]: <function notebook.auth.security.passwd(passphrase=None, algorithm='sha1')>
+
+In [3]: passwd()                                                                                                                                                                                            
+Enter password: 
+Verify password: 
+Out[3]: 'sha1:e513999fe8cf:050be50337bb92e5ce8d84cbd6f0082af047e18f'
+
+In [4]: exit                                                                                                                                                                                                
+$ jupyter notebook --generate-config
+Writing default config to: /home/gilbert/.jupyter/jupyter_notebook_config.py
+$ vi /home/gilbert/.jupyter/jupyter_notebook_config.py
+
+Change or uncomment the following lines.
+#Uncomment and change IP to *
+c.NotebookApp.ip = '*'
+#Uncomment and Change password to the hash generated in ipython
+c.NotebookApp.password = 'sha1:e513999fe8cf:050be50337bb92e5ce8d84cbd6f0082af047e18f' 
+#Uncomment and Change open browser to false
+c.NotebookApp.open_browser = False
+#Uncomment Notebook port
+c.NotebookApp.port = 8888
+
+$bsub -q interactive -J jupyternootebook -Is 'export XDG_RUNTIME_DIR=""; jupyter notebook'
