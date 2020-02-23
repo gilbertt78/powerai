@@ -16,7 +16,7 @@ set -eu
     conda config --set channel_priority strict
     conda install -y --prefix /usr/local \
       python=3.6 cudatoolkit=10.2 \
-      pai4sk seaborn matlib scikit-learn
+      pai4sk seaborn scikit-learn numpy matplotlib
     echo "Copying shared object files to /usr/lib"
     # copy .so files to /usr/lib, where Colab's Python looks for libs
     cp /usr/local/lib/lib*.so /usr/lib/
