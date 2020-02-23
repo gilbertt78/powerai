@@ -1,14 +1,14 @@
 #!/bin/bash
 #forked from https://github.com/nvgsg/rapids/blob/master/rapids-colab.sh
 set -eu
-if [ ! -f Miniconda2-latest-Linux-x86_64.sh ]; then
+if [ ! -f Miniconda3-latest-Linux-x86_64.sh ]; then
     echo "Removing conflicting packages, will replace with RAPIDS compatible versions"
 
     # install miniconda
     echo "Installing conda"
-    wget https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-x86_64.sh
-    chmod +x Miniconda2-latest-Linux-x86_64.sh
-    bash Miniconda2-latest-Linux-x86_64.sh -b -f -p /usr/local
+    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    chmod +x Miniconda3-latest-Linux-x86_64.sh
+    bash Miniconda3-latest-Linux-x86_64.sh -b -f -p /usr/local
 
     echo "Installing SnapML packages"
     echo "Please standby, this will take a few minutes..."
