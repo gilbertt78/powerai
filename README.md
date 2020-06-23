@@ -5,7 +5,9 @@ nvidia-docker run -ti -p 8888:8888 --env LICENSE=yes ibmcom/powerai:1.7.0-snap-m
 
 In container
 #conda install jupyter
+
 #conda install seaborn
+
 #conda install scikit-learn
 
 #jupyter notebook --ip 0.0.0.0 --no-browser –allow-root
